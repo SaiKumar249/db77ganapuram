@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  - results = [{noofWings: 3, Colour: 'Red', Price: 20}, {noofWings: 4, Colour: 'White', Price: 15},{noofWings: 3, Colour: 'Black', Price: 10} ]
+  div(class="container-fluid")
+      each item in results
+        div(class="row")
+          div(class="col-sm-2", style="cursor:pointer", onclick=`buy(${index})`)  #{item.noofWings}
+          div(class="col-sm-2", style="cursor:pointer", onclick=`buy(${index})`)  #{item.Price}
+          div(class="col-sm-2", style="cursor:pointer", onclick=`buy(${index})`)  #{item.Colour}   
+  script. 
+    function buy(index) {
+      alert(`Purchased item ${index + 1}` )
+    } 
